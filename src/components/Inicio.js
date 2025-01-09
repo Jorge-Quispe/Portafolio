@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 export const Inicio = () => {
   return (
-    <div className=" pt-7 py-11 mx-auto px-5 ">
+    <div className=" pt-7 py-11 mx-auto px-5 bg-gray-50 ">
       <motion.div
         initial={{ opacity: 0, x: -20 }} // Comienza invisible y desplazado a la izquierda
         animate={{ opacity: 1, x: 0 }} // Termina visible y en su posición original
@@ -21,25 +21,36 @@ export const Inicio = () => {
 
 "
           >
-            <img src="/images/174857.png" className="size-6" alt=""></img>
+            <motion.img
+              src="/images/174857.png"
+              className="size-6"
+              alt=""
+              whileHover={{ scale: 1.1 }}
+            />{" "}
           </a>
           <a
             href="https://api.whatsapp.com/send/?phone=932346671
 
 "
           >
-            <img
+            <motion.img
               src="/images/pngimg.com - whatsapp_PNG21.png"
               className="size-6"
               alt=""
-            ></img>
+              whileHover={{ scale: 1.1 }}
+            />
           </a>
           <a
             href="https://github.com/Jorge-Quispe
 
 "
           >
-            <img src="/images/25231.png" className="size-6" alt=""></img>
+            <motion.img
+              src="/images/25231.png"
+              className="size-6"
+              alt=""
+              whileHover={{ scale: 1.1 }}
+            />
           </a>
         </div>
       </motion.div>
@@ -65,40 +76,45 @@ export const Inicio = () => {
             las usan.{" "}
           </p>
 
-          <div className="flex  sm:w-1/2   flex-col ">
-            <div className="  text-3xl font-bold pb-4     ">
-              <h2 className="text-center">TECNOLOGIAS</h2>
-            </div>
-
-            <div className="   sm:flex-row flex gap-7 items-center flex-col justify-center  ">
-              <div className="flex flex-row gap-11">
-                <div class=" rounded-lg p-4  transform transition-transform duration-300 hover:scale-110 ">
-                  <img
-                    src="/08-proyecto2/public/images/react.png"
-                    className="size-16"
-                    alt=""
-                  ></img>
-                </div>
-                <div class=" rounded-lg  p-4  transform transition-transform duration-300 hover:scale-110 ">
-                  <img src="/" className="/images/nextjs.png" alt=""></img>
-                </div>
-              </div>
-              <div className="flex flex-row gap-11">
-                <div class=" rounded-lg p-4  transform transition-transform duration-300 hover:scale-110 ">
-                  <img
-                    src="/images/Tailwind_CSS_Logo.svg.png"
-                    className="size-16"
-                    alt=""
-                  ></img>
-                </div>
-                <div class=" rounded-lg  p-4  transform transition-transform duration-300 hover:scale-110 ">
-                  <img
-                    src="/images/Tailwind_CSS_Logo.svg.png"
-                    className="size-16"
-                    alt=""
-                  ></img>
-                </div>
-              </div>
+          <div className="sm:w-1/2 flex flex-col items-center">
+            <h2 className="text-3xl font-bold pb-4 text-center">TECNOLOGIAS</h2>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5  xl:grid-cols-6 gap-11   sm:gap-6 justify-items-center">
+              <motion.img
+                src="/images/React-icon.svg.png"
+                className="size-16"
+                alt=""
+                whileHover={{ scale: 1.1 }}
+              />
+              <motion.img
+                src="/images/nextjs.png"
+                className="size-16"
+                alt=""
+                whileHover={{ scale: 1.1 }}
+              />
+              <motion.img
+                src="/images/Tailwind_CSS_Logo.svg.png"
+                className="size-16"
+                alt=""
+                whileHover={{ scale: 1.1 }}
+              />
+              <motion.img
+                src="/images/HTML5_logo_and_wordmark.svg.png"
+                className="size-16"
+                alt=""
+                whileHover={{ scale: 1.1 }}
+              />
+              <motion.img
+                src="/images/CSS3_logo_and_wordmark.svg.png"
+                className="size-16"
+                alt=""
+                whileHover={{ scale: 1.1 }}
+              />
+              <motion.img
+                src="/images/nodejs.png"
+                className="size-16"
+                alt=""
+                whileHover={{ scale: 1.1 }}
+              />
             </div>
           </div>
         </motion.div>

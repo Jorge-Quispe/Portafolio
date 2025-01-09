@@ -10,7 +10,11 @@ export const HeaderNav = ({ onMenuToggle }) => {
   ); // Estado del menú grande
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
+    setIsOpen((prev) => {
+      const newState = !prev;
+      onMenuToggle(newState); // Llama a la prop aquí
+      return newState;
+    });
   };
 
   const navItems = [
@@ -26,7 +30,9 @@ export const HeaderNav = ({ onMenuToggle }) => {
     const handleResize = () => {
       if (window.innerWidth >= 768) {
         setLargeNavVisible(true);
-        setIsOpen(false); // Cierra el menú hamburguesa si se vuelve a escritorio
+        setIsOpen(false);
+        onMenuToggle(false);
+        // Cierra el menú hamburguesa si se vuelve a escritorio
       } else {
         setLargeNavVisible(false);
       }
@@ -50,10 +56,18 @@ export const HeaderNav = ({ onMenuToggle }) => {
       animate={{ scale: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <span className="md:pt-16 font-bold text-4xl uppercase pt-11  xl:text-7xl xl:pt-0   [@media(min-width:889px)]:pt-8 transition-all duration-300  ">
+      <span
+        className={`md:pt-16 font-bold text-4xl uppercase pt-11  xl:text-7xl xl:pt-0   [@media(min-width:889px)]:pt-8 transition-all duration-300  ${
+          isOpen ? "hidden" : "text-black"
+        }`}
+      >
         JD
       </span>
-      <h3 className=" text-xl font-medium  [943px]:pt-10  pt-12 xl:pt-14">
+      <h3
+        className={`text-xl font-medium  [943px]:pt-10  pt-12 xl:pt-14 ${
+          isOpen ? "hidden" : "text-black"
+        }`}
+      >
         Jorge Dev Solutions
       </h3>
     </motion.div>
@@ -71,7 +85,11 @@ export const HeaderNav = ({ onMenuToggle }) => {
             className="flex  items-center absolute top-2 right-4"
             onClick={toggleMenu}
           >
-            {isOpen ? <X /> : <Menu />}
+            {isOpen ? (
+              <X className="size-8   sm:size-6" />
+            ) : (
+              <Menu className="size-8  sm:size-6" />
+            )}
           </button>
         </div>
       </div>
@@ -84,7 +102,7 @@ export const HeaderNav = ({ onMenuToggle }) => {
             animate={{ opacity: 1, y: 10 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="absolute top-11 left-0 w-full bg-white shadow-md xl:hidden "
+            className="absolute top-16 left-0 h-full w-full bg-white shadow-md xl:hidden "
           >
             <div className="flex flex-col gap-24">
               <div className="flex flex-row items-center  ">{logo}</div>
@@ -95,7 +113,10 @@ export const HeaderNav = ({ onMenuToggle }) => {
                       <NavLink
                         to={section.to}
                         className="block py-2 text-lg font-medium hover:bg-gray-100 w-full "
-                        onClick={() => setIsOpen(false)}
+                        onClick={() => {
+                          setIsOpen(false);
+                          onMenuToggle(false);
+                        }}
                       >
                         {section.name}
                       </NavLink>

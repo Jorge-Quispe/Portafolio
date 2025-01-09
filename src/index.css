@@ -70,6 +70,12 @@ code {
   font-size: 60px;
 }
 
+.card {
+  transition: transform 0.3s;
+}
+.card:hover {
+  transform: scale(1.05);
+}
 @media (min-width: 943px) {
   .pt-10-943 {
     padding-top: 10px; /* Ajusta el valor según lo que necesites */
